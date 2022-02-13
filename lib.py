@@ -65,7 +65,8 @@ def draw_window(red_health, yellow_health):
 def handle_bullet_function(red_bullets, yellow_bullets):
     for bullet in yellow_bullets:
         bullet.x -= bullet_velocity
-        if red.colliderect(bullet): # If it collides the other spaceship, post the RED_HIT event and remove the bullet from the list
+        if red.colliderect(bullet): 
+# If it collides the other spaceship, post the RED_HIT event and remove the bullet from the list
             pygame.event.post(pygame.event.Event(RED_HIT))
             yellow_bullets.remove(bullet)
         elif bullet.x < 0:

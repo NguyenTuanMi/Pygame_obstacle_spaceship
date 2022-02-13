@@ -1,12 +1,20 @@
 import pygame
 import os
+pygame.font.init()
 
 # Asteroid data
 ASTEROID_VELOCITY = 10
 ASTEROID_WIDTH = 60
 ASTEROID_HEIGHT = 55
+NUM_OF_ASTEROIDS = 8
+ASTEROID_X = []
+ASTEROID_Y = []
 
 #Spaceship data
+RED_X = 100
+RED_Y = 350
+YELLOW_X = 900
+YELLOW_y = 350
 SPACESHIP_WIDTH = 55
 SPACESHIP_HEIGHT = 45
 WIDTH, HEIGHT = 900, 500
@@ -15,6 +23,9 @@ MAX_BULLETS = 10
 
 #Border
 BORDER = pygame.Rect(WIDTH/2 - 5, 0, 10, HEIGHT)
+
+HEALTH = pygame.font.SysFont('comicsans', 40)
+WINNER_FONT = pygame.font.SysFont('comicsans', 100)
 
 #Colors (in BGR)
 BLACK = (0,0,0)
@@ -49,7 +60,7 @@ WIN = pygame.display.set_mode((WIDTH, HEIGHT))
 pygame.display.set_caption("First game!s")
 
 #FPS time
-FPS = 200
+FPS = 30
 
 #Display and change some aspects of the asteroid's picture
 ASTEROID = pygame.transform.rotate(
@@ -72,3 +83,6 @@ YELLOW_SPACESHIP = pygame.transform.rotate(pygame.transform.scale(
     YELLOW_SPACESHIP_PIC, (SPACESHIP_WIDTH,SPACESHIP_HEIGHT)), 270)
 RED_SPACESHIP = pygame.transform.rotate(pygame.transform.scale(
     RED_SPACESHIP_PIC, (SPACESHIP_WIDTH,SPACESHIP_HEIGHT)), 90)
+
+red = pygame.Rect(100,100,SPACESHIP_WIDTH,SPACESHIP_HEIGHT)
+yellow = pygame.Rect(700,100,SPACESHIP_WIDTH,SPACESHIP_HEIGHT)

@@ -38,14 +38,19 @@ def draw_winner(text, COLOR):
 
 #Draw the window
 def draw_window(red_health, yellow_health):
+    # Draw the background of the window
     WIN.blit(SPACE, (0,0))
+    # Draw the border 
     pygame.draw.rect(WIN, BLACK, BORDER)
+    # Display 2 spaceships
     WIN.blit(YELLOW_SPACESHIP,(yellow.x,yellow.y))
     WIN.blit(RED_SPACESHIP,(red.x,red.y))
 
+    # Display the asteroids
     for i in range(NUM_OF_ASTEROIDS):
         WIN.blit(ASTEROIDS[i], (ASTEROID_X[i], ASTEROID_Y[i]))
 
+    # Display the health data
     red_health_text = HEALTH.render(
     "Health :" + str(red_health), 1, WHITE)
     yellow_health_text = HEALTH.render(
@@ -55,10 +60,12 @@ def draw_window(red_health, yellow_health):
     WIN.blit(yellow_health_text, (
     (WIDTH - 10 - yellow_health_text.get_width()),10))
 
+    # Display the bullets
     for bullet in red_bullets:
         pygame.draw.rect(WIN, RED, bullet)
     for bullet in yellow_bullets:
         pygame.draw.rect(WIN, YELLOW, bullet)
+    # Update the window
     pygame.display.update() 
 
 #This class deals with bullets, shoot it by increasing its y-coordinates 
@@ -66,7 +73,8 @@ def handle_bullet_function(red_bullets, yellow_bullets):
     for bullet in yellow_bullets:
         bullet.x -= bullet_velocity
         if red.colliderect(bullet): 
-# If it collides the other spaceship, post the RED_HIT event and remove the bullet from the list
+# If it collides the other spaceship, 
+# post the RED_HIT event and remove the bullet from the list
             pygame.event.post(pygame.event.Event(RED_HIT))
             yellow_bullets.remove(bullet)
         elif bullet.x < 0:
@@ -80,7 +88,8 @@ def handle_bullet_function(red_bullets, yellow_bullets):
         elif bullet.x > WIDTH:
             red_bullets.remove(bullet)
 
-# The controller of the red_spaceship, increasing its coordinates to move around but it cannot get pass the border
+# The controller of the red_spaceship, 
+# increasing its coordinates to move around but it cannot get pass the border
 def red_spaceship_controller(key_pressed):
     if key_pressed[pygame.K_a] and red.x - VEL > 0:
             red.x -= VEL   

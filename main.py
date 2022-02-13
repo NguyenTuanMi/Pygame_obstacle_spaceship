@@ -13,7 +13,7 @@ def main():
     clock = pygame.time.Clock() # Create a clock for counting time
     run = True
     while run:
-        clock.tick(FPS) #This will make sure that the clock run 
+        clock.tick(FPS) #This will make sure that the code run with the given frame
         for event in pygame.event.get():  #for all the event in the pygame list
             if event.type == pygame.QUIT: #check if it quit, quit the game
                 run = False

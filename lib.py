@@ -30,10 +30,14 @@ def is_hit(SPACESHIP, i):
 
 #Draw the winner
 def draw_winner(text, COLOR):
+    #The winner text
     draw_text = WINNER_FONT.render(text, 1, COLOR)
+    #Display the text
     WIN.blit(draw_text,(
     WIDTH/2 - draw_text.get_width() /2, HEIGHT/2 - draw_text.get_height()/2))
+    #Update the text
     pygame.display.update()
+    # Delay the time for 5000 milliseconds
     pygame.time.delay(5000)
 
 #Draw the window

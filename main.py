@@ -1,8 +1,8 @@
 import pygame
 import os
 import random
-from lib import *
-from constants import *
+from lib import * #import all in lib.py
+from constants import * #import all in constants.py
 pygame.font.init()
 #pygame.mixer.init()
 
@@ -13,7 +13,7 @@ def main():
     clock = pygame.time.Clock() # Create a clock for counting time
     run = True
     while run:
-        clock.tick(FPS) #This will make sure that the code run with the given frame
+        clock.tick(FPS) #This will make sure that the code run with the given fps
         for event in pygame.event.get():  #for all the event in the pygame list
             if event.type == pygame.QUIT: #check if it quit, quit the game
                 run = False
